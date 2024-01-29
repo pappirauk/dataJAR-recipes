@@ -7,7 +7,7 @@
 
 Set the DERIVE_MIN_OS variable to a non-empty string to set the minimum_os_version via MunkiInstallsItemsCreator. This requires a minimum AutoPkg version of 2.7 please update if you're not already running it.</string>
     <key>Identifier</key>
-    <string>com.github.dataJAR-recipes.munki.Microsoft Teams work or school</string>
+    <string>com.github.svs.munki.Microsoft Teams work or school</string>
     <key>Input</key>
     <dict>
         <key>DERIVE_MIN_OS</key>
@@ -73,19 +73,23 @@ Your modern workplace at home, in the office, and on the go</string>
         <dict>
             <key>Arguments</key>
             <dict>
-                <key>faux_root</key>
-                <string>%RECIPE_CACHE_DIR%</string>
-                <key>derive_minimum_os_version</key>
-                <string>%DERIVE_MIN_OS%</string>
-                <key>installs_item_paths</key>
-                <array>
-                    <string>/Applications/Microsoft Teams (work or school).app</string>
-                </array>
+               <key>input_plist_path</key>
+               <string>%RECIPE_CACHE_DIR%/Applications/Microsoft Teams (work or school).app/Contents/Info.plist</string>
+               <key>plist_version_key</key>
+               <string>CFBundleShortVersionString</string>
             </dict>
             <key>Processor</key>
-            <string>MunkiInstallsItemsCreator</string>
+            <string>Versioner</string>
         </dict>
         <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>additional_pkginfo</key>
+                <dict>
+                    <key>version</key>
+                    <string>%version%</string>
+                </dict>
+            </dict>
             <key>Processor</key>
             <string>MunkiPkginfoMerger</string>
         </dict>
