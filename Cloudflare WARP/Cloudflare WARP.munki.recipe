@@ -161,7 +161,7 @@ exit 0</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>
-    <string>1.0.0</string>
+    <string>1.1</string>
     <key>ParentRecipe</key>
     <string>com.github.dataJAR-recipes.download.Cloudflare WARP</string>
     <key>Process</key>
@@ -182,10 +182,19 @@ exit 0</string>
         <dict>
             <key>Arguments</key>
             <dict>
+                <key>pattern</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/Cloudflare_WARP_*.pkg</string>
+            </dict>
+            <key>Processor</key>
+            <string>FileFinder</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
                 <key>destination_path</key>
                 <string>%RECIPE_CACHE_DIR%/Applications</string>
                 <key>pkg_payload_path</key>
-                <string>%RECIPE_CACHE_DIR%/unpack/Cloudflare_WARP.pkg/Payload</string>
+                <string>%RECIPE_CACHE_DIR%/unpack/%found_basename%/Payload</string>
                 <key>purge_destination</key>
                 <true/>
             </dict>

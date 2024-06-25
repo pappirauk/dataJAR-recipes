@@ -19,11 +19,11 @@
             <key>Arguments</key>
             <dict>
                 <key>re_pattern</key>
-                <string>href=\"(https://us\.hikvision\.com/sites/default/files/software/ivms-[0-9]+_mac_v([0-9]+(\.[0-9]+)+)\.pkg_\.zip)\"</string>
+                <string>data-link=\"/(content/dam/hikvision/en/support/download/vms/ivms4200-series/software-download/iVMS-([0-9]+(\.[0-9]+)+)\.pkg\.zip)\"</string>
                 <key>result_output_var_name</key>
                 <string>DOWNLOAD_URL</string>
                 <key>url</key>
-                <string>https://us.hikvision.com/en/products/logiciel/ivms-4200-series/free-client-software-hikvision-devices-ivms-4200-macos</string>
+                <string>https://www.hikvision.com/us-en/support/download/software/ivms4200-series/</string>
             </dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>
@@ -31,10 +31,17 @@
         <dict>
             <key>Arguments</key>
             <dict>
+                <key>request_headers</key>
+                <dict>
+                    <key>Referer</key>
+                    <string>https://www.hikvision.com/;auto</string>
+                    <key>User-Agent</key>
+                    <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Safari/605.1.15</string>
+                </dict>
                 <key>filename</key>
                 <string>%NAME%.zip</string>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
+                <string>https://www.hikvision.com/%DOWNLOAD_URL%</string>
             </dict>
             <key>Processor</key>
             <string>URLDownloader</string>
