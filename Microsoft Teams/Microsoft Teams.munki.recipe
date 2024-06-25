@@ -77,7 +77,7 @@ Your modern workplace at home, in the office, and on the go</string>
             <key>Arguments</key>
             <dict>
                <key>input_plist_path</key>
-               <string>%RECIPE_CACHE_DIR%/Applications/MicrosoftTeams.app/Contents/Info.plist</string>
+               <string>%RECIPE_CACHE_DIR%/local.munki.Microsoft Teams/Applications/Microsoft Teams.app/Contents/Info.plist</string>
                <key>plist_version_key</key>
                <string>CFBundleShortVersionString</string>
             </dict>
